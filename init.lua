@@ -815,7 +815,6 @@ require('lazy').setup({
         'html',
         'javascript',
         'json',
-        'jsonc',
         'lua',
         'luadoc',
         'markdown',
