@@ -562,6 +562,7 @@ require('lazy').setup({
         },
         'hadolint',
         'markdownlint',
+        'prettier',
         'prettierd',
         'ruff',
         'stylua',
@@ -628,7 +629,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 10000,
             lsp_format = 'fallback',
           }
         end
@@ -636,17 +637,17 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
 
-        javascript = { 'prettierd' },
-        typescript = { 'prettierd' },
-        javascriptreact = { 'prettierd' },
-        typescriptreact = { 'prettierd' },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
 
-        svelte = { 'prettierd' },
+        svelte = { 'prettierd', 'prettier', stop_after_first = true },
 
-        json = { 'prettierd' },
-        jsonc = { 'prettierd' },
-        yaml = { 'prettierd' },
-        markdown = { 'prettierd' },
+        json = { 'prettierd', 'prettier', stop_after_first = true },
+        jsonc = { 'prettierd', 'prettier', stop_after_first = true },
+        yaml = { 'prettierd', 'prettier', stop_after_first = true },
+        markdown = { 'prettierd', 'prettier', stop_after_first = true },
 
         go = { 'gofumpt' },
 
