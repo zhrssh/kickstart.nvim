@@ -542,6 +542,7 @@ require('lazy').setup({
         },
         pyright = {},
         svelte = {},
+        tilt = {},
         ts_ls = {},
         yamlls = {},
       }
