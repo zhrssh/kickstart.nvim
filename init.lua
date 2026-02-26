@@ -604,6 +604,21 @@ require('lazy').setup({
         },
       })
       vim.lsp.enable 'lua_ls'
+
+      -- Set automatic tiltfile identification
+      vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+        desc = 'Set custom file permanently',
+        pattern = '[Tt]iltfile',
+        command = 'set filetype=tiltfile',
+      })
+
+      -- Tilt LS config
+      vim.lsp.config('tilt', {
+        cmd = { 'tilt', 'lsp', 'start' },
+        filetypes = { 'tiltfile' },
+        root_markers = { '.git' },
+      })
+      vim.lsp.enable 'tilt'
     end,
   },
 
