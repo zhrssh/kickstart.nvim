@@ -145,8 +145,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Keybinds to move lines of code
 vim.keymap.set('n', '<M-j>', ':m .+1<CR>==', { desc = 'Move line down' })
 vim.keymap.set('n', '<M-k>', ':m .-2<CR>==', { desc = 'Move line up' })
-vim.keymap.set('v', '<M-k>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
-vim.keymap.set('v', '<M-j>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+vim.keymap.set('v', '<M-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', '<M-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
