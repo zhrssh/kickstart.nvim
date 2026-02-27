@@ -542,7 +542,11 @@ require('lazy').setup({
         },
         pyright = {},
         svelte = {},
-        tilt = {},
+        tilt = {
+          cmd = { 'tilt', 'lsp', 'start' },
+          filetypes = { 'tiltfile' },
+          root_markers = { '.git' },
+        },
         ts_ls = {},
         yamlls = {},
       }
@@ -557,6 +561,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'bandit',
+        'css-lsp',
         {
           'gofumpt',
           condition = function() return vim.fn.executable 'go' == 1 end,
@@ -612,13 +617,19 @@ require('lazy').setup({
         command = 'set filetype=tiltfile',
       })
 
-      -- Tilt LS config
-      vim.lsp.config('tilt', {
-        cmd = { 'tilt', 'lsp', 'start' },
-        filetypes = { 'tiltfile' },
-        root_markers = { '.git' },
+      -- css-lsp config
+      vim.lsp.config('css-lsp', {
+        cmd = { 'vscode-css-language-server', '--stdio' },
+        filetypes = { 'css', 'scss', 'less' },
+        init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
+        root_markers = { 'package.json', '.git' },
+        settings = {
+          css = { validate = true },
+          scss = { validate = true },
+          less = { validate = true },
+        },
       })
-      vim.lsp.enable 'tilt'
+      vim.lsp.enable 'css-lsp'
     end,
   },
 
