@@ -4,6 +4,7 @@
 ---@module 'lazy'
 ---@type LazySpec
 return {
+
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
   dependencies = {
@@ -19,6 +20,10 @@ return {
   ---@type neotree.Config
   opts = {
     filesystem = {
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',

@@ -162,7 +162,11 @@ examples of adding popularly requested plugins.
 
 Below you can find OS specific install instructions for Neovim and dependencies.
 
+<<<<<<< HEAD
 After installing all the dependencies continue with the [Install Kickstart](#install-kickstart) step.
+=======
+After installing all the dependencies continue with the [Install Kickstart](#Install-Kickstart) step.
+>>>>>>> 74f2c7d (Initial commit)
 
 #### Windows Installation
 
@@ -247,6 +251,7 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd tree-sitter-cli unzi
 ```
 </details>
 
+<<<<<<< HEAD
 ### Alternative neovim installation methods
 
 For some systems it is not unexpected that the [package manager installation
@@ -321,3 +326,5 @@ asdf reshim neovim
 </details>
 
 </details>
+=======
+>>>>>>> 74f2c7d (Initial commit)
