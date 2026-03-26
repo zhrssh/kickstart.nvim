@@ -768,12 +768,20 @@ require('lazy').setup({
   },
 
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- 'catppuccin/nvim',
+    -- name = 'catppuccin',
+    -- priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- config = function()
+    --   -- Load the colorscheme here.
+    --   vim.cmd.colorscheme 'catppuccin-mocha'
+    -- end,
+    'gbprod/nord.nvim',
+    name = 'nord',
+    lazy = false,
+    priority = 1000,
     config = function()
-      -- Load the colorscheme here.
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      require('nord').setup {}
+      vim.cmd.colorscheme 'nord'
     end,
   },
 
@@ -855,6 +863,12 @@ require('lazy').setup({
         'vimdoc',
         'yaml',
       }
+
+      -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+      require('nvim-treesitter').setup {
+        install_dir = vim.fn.stdpath 'data' .. '/site',
+      }
+
       require('nvim-treesitter').install(parsers)
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)
