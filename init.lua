@@ -33,6 +33,15 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'javascript', 'typescript', 'json', 'html', 'css', 'javascriptreact', 'typescriptreact', 'yaml' },
+  callback = function()
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+  end,
+})
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -327,12 +336,14 @@ require('lazy').setup({
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          'flutter',
         },
       }
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'flutter')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
